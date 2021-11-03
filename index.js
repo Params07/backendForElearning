@@ -18,14 +18,14 @@ app.listen(5000,()=>{
 app.post('/course',async(req,res)=>{
     try{
     const {title,des,lang,url} = req.body;
-    const ch = await DP.query('SELECT * FROM courses WHERE URL = $1',[url]);
+    const ch = await DP.query('SELECT * FROM course WHERE URL = $1',[url]);
     if(ch.rows.length)
     {
         console.log(ch.rows.length);
         res.json('This course already exist');
     }else{
        
-        const d = await DP.query('INSERT INTO courses (TITLE,DESCRIPTION,LANG,URL) VALUES ($1,$2,$3,$4)',[title,des,lang,url]);
+        const d = await DP.query('INSERT INTO course (TITLE,DESCRIPTION,LANG,URL) VALUES ($1,$2,$3,$4)',[title,des,lang,url]);
     
         res.json('course added');
     }
@@ -41,7 +41,7 @@ app.post('/course',async(req,res)=>{
 app.get('/getcourse',async(req,res)=>
 {
     try {
-        const content = await DP.query('SELECT * FROM courses');
+        const content = await DP.query('SELECT * FROM course');
         res.json(content.rows);
         console.log('contents');
         
