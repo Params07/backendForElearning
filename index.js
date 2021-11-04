@@ -1,7 +1,7 @@
 const express =  require('express');
 const cors = require('cors');
 const app = express();
-const Pool = require('pg').Pool;
+const {Pool} = require('pg');
 const DP = new Pool({
     connectionString:"postgres://ezmeyticlxbztw:29e3c6509f622f9ffa95fce1d33ae0be47481ddec08206ff20bcf5f974f0b4e5@ec2-18-210-233-138.compute-1.amazonaws.com:5432/da7ggj4bejq2og",
     ssl: {
