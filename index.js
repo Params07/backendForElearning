@@ -25,7 +25,7 @@ app.post('/course',async(req,res)=>{
         res.json('This course already exist');
     }else{
        
-        const d = await DP.query('INSERT INTO course (TITLE,DESCRIPTION,LANG,URL) VALUES ($1,$2,$3,$4)',[title,des,lang,url]);
+        const d = await DP.query('INSERT INTO course (TITLE,LANG,URL) VALUES ($1,$2,$3,$4)',[title,lang,url]);
     
         res.json('course added');
     }
